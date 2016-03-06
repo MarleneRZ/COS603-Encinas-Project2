@@ -6,9 +6,6 @@ package edu.towson.cis.cosc603.project2.monopoly;
  */
 public class GoCell extends Cell {
 	
-	/** The available. */
-	private boolean available = true;
-
 	/**
 	 * Instantiates a new go cell.
 	 */
@@ -27,23 +24,5 @@ public class GoCell extends Cell {
 	 * @see edu.towson.cis.cosc442.project1.monopoly.Cell#setName(java.lang.String)
 	 */
 	void setName(String name) {
-	}
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 }

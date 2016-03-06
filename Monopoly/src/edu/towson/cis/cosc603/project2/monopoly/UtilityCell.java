@@ -21,9 +21,6 @@ public class UtilityCell extends Cell {
 		UtilityCell.PRICE = price;
 	}
 
-	/** The available. */
-	private boolean available = true;
-
 	/* (non-Javadoc)
 	 * @see edu.towson.cis.cosc442.project1.monopoly.Cell#getPrice()
 	 */
@@ -59,23 +56,5 @@ public class UtilityCell extends Cell {
 				currentPlayer.payRentTo(theOwner, getRent(diceRoll));
 			}
 		}
-	}
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 }

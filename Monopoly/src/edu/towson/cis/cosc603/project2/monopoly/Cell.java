@@ -12,6 +12,9 @@ public abstract class Cell {
 	/** The theOwner. */
 	protected Player theOwner;
 
+	/** The available. */
+	private boolean available = true;
+
 	/**
 	 * Gets the name.
 	 *
@@ -68,4 +71,22 @@ public abstract class Cell {
     public String toString() {
         return name;
     }
+
+	/**
+	 * Checks if is available.
+	 *
+	 * @return true, if is available
+	 */
+	public boolean isAvailable() {
+		return available;
+	}
+
+	/**
+	 * Sets the available.
+	 *
+	 * @param available the new available
+	 */
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
 }

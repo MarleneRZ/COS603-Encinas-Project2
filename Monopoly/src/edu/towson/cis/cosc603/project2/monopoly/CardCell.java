@@ -8,10 +8,7 @@ public class CardCell extends Cell {
     
     /** The type. */
     private int type;
-	/** The available. */
-	private boolean available = true;
-    
-    /**
+	/**
      * Instantiates a new card cell.
      *
      * @param type the type
@@ -36,22 +33,4 @@ public class CardCell extends Cell {
     public int getType() {
         return type;
     }
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
 }

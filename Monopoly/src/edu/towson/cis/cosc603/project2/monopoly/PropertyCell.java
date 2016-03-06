@@ -21,9 +21,6 @@ public class PropertyCell extends Cell {
 	/** The sell price. */
 	private int sellPrice;
 
-	/** The available. */
-	private boolean available = true;
-
 	/**
 	 * Gets the color group.
 	 *
@@ -133,23 +130,5 @@ public class PropertyCell extends Cell {
 	 */
 	public void setRent(int rent) {
 		this.rent = rent;
-	}
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 }

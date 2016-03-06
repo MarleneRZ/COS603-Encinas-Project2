@@ -6,9 +6,6 @@ package edu.towson.cis.cosc603.project2.monopoly;
  */
 public class FreeParkingCell extends Cell {
 
-	/** The available. */
-	private boolean available = true;
-
 	/**
 	 * Instantiates a new free parking cell.
 	 */
@@ -21,23 +18,5 @@ public class FreeParkingCell extends Cell {
 	 */
 	public void playAction() {
 		return;
-	}
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 }

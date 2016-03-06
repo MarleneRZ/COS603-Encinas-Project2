@@ -8,9 +8,6 @@ public class JailCell extends Cell {
 	
 	/** The bail. */
 	public static int BAIL = 50;
-	/** The available. */
-	private boolean available = true;
-	
 	/**
 	 * Instantiates a new jail cell.
 	 */
@@ -23,23 +20,5 @@ public class JailCell extends Cell {
 	 */
 	public void playAction() {
 		
-	}
-
-	/**
-	 * Checks if is available.
-	 *
-	 * @return true, if is available
-	 */
-	public boolean isAvailable() {
-		return available;
-	}
-
-	/**
-	 * Sets the available.
-	 *
-	 * @param available the new available
-	 */
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 }
