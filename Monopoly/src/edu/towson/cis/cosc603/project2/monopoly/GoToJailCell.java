@@ -6,6 +6,9 @@ package edu.towson.cis.cosc603.project2.monopoly;
  */
 public class GoToJailCell extends Cell {
 	
+	/** The available. */
+	private boolean available = true;
+
 	/**
 	 * Instantiates a new go to jail cell.
 	 */
@@ -20,5 +23,23 @@ public class GoToJailCell extends Cell {
 		Player currentPlayer = GameMaster.instance().getCurrentPlayer();
 		GameMaster.instance().getGameBoard().queryCell("Jail");
 		GameMaster.instance().sendToJail(currentPlayer);
+	}
+
+	/**
+	 * Checks if is available.
+	 *
+	 * @return true, if is available
+	 */
+	public boolean isAvailable() {
+		return available;
+	}
+
+	/**
+	 * Sets the available.
+	 *
+	 * @param available the new available
+	 */
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }
