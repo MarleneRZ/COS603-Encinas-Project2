@@ -93,7 +93,7 @@ public class Player {
 	 */
 	public boolean checkProperty(String property) {
 		for(int i=0;i<properties.size();i++) {
-			Cell cell = (Cell)properties.get(i);
+			IOwnable cell = (IOwnable)properties.get(i);
 			if(cell.getName().equals(property)) {
 				return true;
 			}
@@ -130,12 +130,12 @@ public class Player {
      *
      * @return the all properties
      */
-    public Cell[] getAllProperties() {
+    public IOwnable[] getAllProperties() {
         ArrayList<Cell> list = new ArrayList<Cell>();
         list.addAll(properties);
         list.addAll(utilities);
         list.addAll(railroads);
-        return (Cell[])list.toArray(new Cell[list.size()]);
+        return (IOwnable[])list.toArray(new Cell[list.size()]);
     }
 
 	/**
@@ -296,7 +296,7 @@ public class Player {
 	 */
 	public void purchase() {
 		if(getPosition().isAvailable()) {
-			Cell c = getPosition();
+			IOwnable c = getPosition();
 			c.setAvailable(false);
 			if(c instanceof PropertyCell) {
 				PropertyCell cell = (PropertyCell)c;
@@ -367,7 +367,7 @@ public class Player {
      * @param property the property
      * @param amount the amount
      */
-    public void sellProperty(Cell property, int amount) {
+    public void sellProperty(IOwnable property, int amount) {
         property.setTheOwner(null);
         if(property instanceof PropertyCell) {
             properties.remove(property);
