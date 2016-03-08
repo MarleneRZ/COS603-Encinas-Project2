@@ -30,4 +30,6 @@ public abstract class Card {
      * @return the card type
      */
     public abstract int getCardType();
+
+	public abstract void addCard(GameBoard gameBoard);
 }

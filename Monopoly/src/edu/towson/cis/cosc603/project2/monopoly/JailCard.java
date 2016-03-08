@@ -42,4 +42,8 @@ public class JailCard extends Card {
         return "Go to Jail immediately without collecting" +
         		" $200 when passing the GO cell";
     }
+
+	public void addCard(GameBoard gameBoard) {
+		gameBoard.getChanceCards().add(this);
+	}
 }

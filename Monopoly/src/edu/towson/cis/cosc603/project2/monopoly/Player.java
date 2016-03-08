@@ -3,6 +3,8 @@ package edu.towson.cis.cosc603.project2.monopoly;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 
 // TODO: Auto-generated Javadoc
@@ -295,22 +297,7 @@ public class Player {
 	 * Purchase.
 	 */
 	public void purchase() {
-		if(getPosition().isAvailable()) {
-			IOwnable c = getPosition();
-			c.setAvailable(false);
-			if(c instanceof PropertyCell) {
-				PropertyCell cell = (PropertyCell)c;
-				purchaseProperty(cell);
-			}
-			if(c instanceof RailRoadCell) {
-				RailRoadCell cell = (RailRoadCell)c;
-				purchaseRailRoad(cell);
-			}
-			if(c instanceof UtilityCell) {
-				UtilityCell cell = (UtilityCell)c;
-				purchaseUtility(cell);
-			}
-		}
+		position.purchase(this);
 	}
 	
 	/**
@@ -339,7 +326,7 @@ public class Player {
 	 *
 	 * @param cell the cell
 	 */
-	private void purchaseProperty(PropertyCell cell) {
+	public void purchaseProperty(PropertyCell cell) {
         buyProperty(cell, cell.getPrice());
 	}
 
@@ -348,7 +335,7 @@ public class Player {
 	 *
 	 * @param cell the cell
 	 */
-	private void purchaseRailRoad(RailRoadCell cell) {
+	public void purchaseRailRoad(RailRoadCell cell) {
 	    buyProperty(cell, cell.getPrice());
 	}
 
@@ -357,7 +344,7 @@ public class Player {
 	 *
 	 * @param cell the cell
 	 */
-	private void purchaseUtility(UtilityCell cell) {
+	public void purchaseUtility(UtilityCell cell) {
 	    buyProperty(cell, cell.getPrice());
 	}
 
@@ -431,5 +418,23 @@ public class Player {
     	properties = new ArrayList<PropertyCell>();
     	railroads = new ArrayList<Cell>();
     	utilities = new ArrayList<Cell>();
+	}
+
+	/**
+	 * Display info.
+	 * @param lblName
+	 * @param lblMoney
+	 * @param txtProperty
+	 */
+	public void displayInfo(JLabel lblName, JLabel lblMoney,
+			JTextArea txtProperty) {
+		lblName.setText(getName());
+		lblMoney.setText("$ " + getMoney());
+		StringBuffer buf = new StringBuffer();
+		IOwnable[] cells = getAllProperties();
+		for (int i = 0; i < cells.length; i++) {
+			buf.append(cells[i] + "\n");
+		}
+		txtProperty.setText(buf.toString());
 	}
 }

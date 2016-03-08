@@ -85,4 +85,38 @@ public abstract class Cell implements IOwnable {
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
+
+	/**
+	 * Purchase.
+	 * @param player
+	 */
+	public void purchase(Player player) {
+		if (isAvailable()) {
+			IOwnable c = player.getPosition();//position;
+			c.setAvailable(false);
+			if (c instanceof PropertyCell) {
+				PropertyCell cell = (PropertyCell) c;
+				player.purchaseProperty(cell);
+			}
+			if (c instanceof RailRoadCell) {
+				RailRoadCell cell = (RailRoadCell) c;
+				player.purchaseRailRoad(cell);
+			}
+			if (c instanceof UtilityCell) {
+				UtilityCell cell = (UtilityCell) c;
+				player.purchaseUtility(cell);
+			}
+		}
+	}
+
+	public void playerMoved(Player player, int playerIndex,
+			GameMaster gameMaster) {
+		if (this.isAvailable()) {
+			int price = this.getPrice();
+			if (price <= player.getMoney() && price > 0) {
+				gameMaster.getGUI().enablePurchaseBtn(playerIndex);
+			}
+		}
+		gameMaster.getGUI().enableEndTurnBtn(playerIndex);
+	}
 }

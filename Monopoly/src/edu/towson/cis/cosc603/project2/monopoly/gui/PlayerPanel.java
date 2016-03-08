@@ -156,7 +156,7 @@ public class PlayerPanel extends JPanel {
                 Card card = GameMaster.instance().btnDrawCardClicked();
                 JOptionPane
                         .showMessageDialog(PlayerPanel.this, card.getLabel());
-                displayInfo();
+                player.displayInfo(lblName, lblMoney, txtProperty);
             }
         });
 
@@ -171,14 +171,7 @@ public class PlayerPanel extends JPanel {
      * Display info.
      */
     public void displayInfo() {
-        lblName.setText(player.getName());
-        lblMoney.setText("$ " + player.getMoney());
-        StringBuffer buf = new StringBuffer();
-        IOwnable[] cells = player.getAllProperties();
-        for (int i = 0; i < cells.length; i++) {
-            buf.append(cells[i] + "\n");
-        }
-        txtProperty.setText(buf.toString());
+        player.displayInfo(lblName, lblMoney, txtProperty);
     }
     
     /**
